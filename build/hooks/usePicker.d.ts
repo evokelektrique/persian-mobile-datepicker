@@ -1,0 +1,36 @@
+import type { DateConfigTypes, PickerDateModel, PickerItemModel, PickerSelectedDateValue, WheelPickerProps } from '../components/WheelPicker/index.types';
+import type { CSSProperties } from 'react';
+import type { PickerColumnCaption } from '../components/WheelPicker/index.types';
+export declare function usePicker(props: WheelPickerProps): {
+    configs: Required<Partial<{
+        year: import("../components/WheelPicker/index.types").DateConfigValuesModel;
+        month: import("../components/WheelPicker/index.types").DateConfigValuesModel;
+        day: import("../components/WheelPicker/index.types").DateConfigValuesModel;
+        hour: import("../components/WheelPicker/index.types").DateConfigValuesModel;
+        minute: import("../components/WheelPicker/index.types").DateConfigValuesModel;
+        second: import("../components/WheelPicker/index.types").DateConfigValuesModel;
+    }>>;
+    classNamePrefix: (className: string) => string;
+    daysInMonth: number;
+    selectedDate: PickerDateModel;
+    setSelectedDate: (date: PickerDateModel) => void;
+    defaultSelectedDate: PickerDateModel;
+    maxYear: number;
+    minYear: number;
+    minDateObject: Required<PickerDateModel>;
+    maxDateObject: Required<PickerDateModel>;
+    isMinDateValid: boolean;
+    isMaxDateValid: boolean;
+    isInitialValueValid: boolean;
+    initialValueDateObject: Required<PickerDateModel>;
+    defaultPickerValueAsString: string[];
+    checkDayIsWeekend: (day: number) => boolean;
+    filterAllowedColumnRows: (pickerList: Array<PickerItemModel>, type: DateConfigTypes) => Array<PickerItemModel>;
+    getPickerItemClassNames: (pickerItem: PickerItemModel) => string;
+    getPickerColumnsCaption: (type: DateConfigTypes) => PickerColumnCaption | boolean;
+    shouldRender: (selectedDate: PickerDateModel, key: DateConfigTypes, value: PickerSelectedDateValue) => boolean;
+    shouldRenderYear: (selectedDate: PickerDateModel, value: number) => boolean;
+    handlePickerItemTextContent: (pickerItem: PickerItemModel) => PickerSelectedDateValue | string;
+    getColumnStylesByKey: (type: DateConfigTypes, styleKey: 'itemStyle' | 'columnStyle' | 'selectedItemStyle') => CSSProperties;
+    getPickerItemContentStyles: (pickerItem: PickerItemModel, type: DateConfigTypes, isSelectedItem: boolean) => CSSProperties;
+};
